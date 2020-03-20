@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace mdt112_assignment2
+namespace Mdt112_assignment2
 {
     public enum Size{
         SMALL, MEDIUM, LARGE
