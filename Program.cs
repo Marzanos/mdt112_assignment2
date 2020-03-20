@@ -158,24 +158,23 @@ namespace Mdt112_assignment2
         float totalPrice = 0;
         foreach (var garbage in garbageList)
         {
-            Console.WriteLine("Total price is: {0}", totalPrice);
+            
             if (garbage is IDisassemblable)
             {
                 totalPrice -= ((IDisassemblable)garbage).GetDisassembleCost();
-                Console.WriteLine("Disassemble cost for {0} is {1}", garbage.Label, ((IDisassemblable)garbage).GetDisassembleCost());
-                Console.WriteLine("Now have {0} left", totalPrice);
+                
                 foreach (var disassembleItem in ((ElectronicsGarbage)garbage).Disassemble())
                 {
                     totalPrice += disassembleItem.GetSellPrice();
-                    Console.WriteLine("Sell {0} for {1}, now have : {2}", disassembleItem.Label, disassembleItem.GetSellPrice(), totalPrice);
+                   
                 }
             }
             else if (garbage is ISellable)
             {
                 totalPrice += ((ISellable)garbage).GetSellPrice();
-                Console.WriteLine("Sell {0} for {1}, now have : {2}", garbage.Label, ((ISellable)garbage).GetSellPrice(), totalPrice);
+               
             }
-            Console.WriteLine("Sell {0} finish", garbage.Label);
+          
         }
         return totalPrice;
     }
